@@ -1,0 +1,186 @@
+        {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8E1E1; /* Light Pink */
+            color: #333333; /* Dark Gray */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #B03060; /* Deep Red */
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .sell-info, .alternative-info {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sell-info h2, .alternative-info h2 {
+            color: #333;
+        }
+
+        .price {
+            color: #32CD32; /* Highlight the price */
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        section {
+            margin: 20px auto;
+        }
+
+        .profileRow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Five columns for desktop */
+            gap: 10px; /* Space between profiles */
+            margin-bottom: 20px; /* Spacing between rows */
+        }
+
+        .profile {
+            position: relative; /* Position relative for online status */
+            text-align: center; /* Center-align the text */
+            margin-bottom: 10px; /* Spacing below profiles */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        .profile img {
+            width: 100px; /* Larger size for profile image on desktop */
+            height: 100px; /* Fixed size for profile image */
+            border-radius: 50%; /* Circular image */
+            border: 2px solid #e63946; /* Optional border color */
+        }
+
+        .profile .online {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: rgba(0, 128, 0, 0.7); /* Green background */
+            color: white;
+            padding: 3px 5px;
+            border-radius: 5px;
+            font-size: 0.7em; /* Smaller font */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #B03060; /* Deep Red */
+            color: white;
+        }
+
+        #messageArea {
+            display: none;
+            color: green;
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid #32CD32; /* Border color */
+            background-color: #e0f7e0; /* Light green background */
+            border-radius: 8px;
+            max-width: 400px;
+        }
+
+        button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        #loginButton {
+            background-color: #007bff; /* Blue for Login */
+            color: white;
+        }
+
+        #signupButton {
+            background-color: #28a745; /* Green for Sign Up */
+            color: white;
+        }
+
+        #loginButton:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        #signupButton:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        .inquiry {
+           
+            text-align: center;
+        }
+
+        button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        #makeOfferButton {
+            background-color: #28a745; /* Green for Make Offer */
+            color: white;
+        }
+
+        #inquiryButton {
+            background-color: #007bff; /* Blue for Inquiry */
+            color: white;
+        }
+
+        #makeOfferButton:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        #inquiryButton:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .premium-domain {
+            margin: 10px;
+            padding: 10px;
+            background-color: #e0f7e0; /* Light green background */
+            border: 2px solid #32CD32; /* Border color */
+            border-radius: 8px;
+            text-align: center;
+        }
+        /* Responsive Design for Mobile */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .profileRow {
+                grid-template-columns: repeat(3, 1fr); /* Three columns for mobile */
+            }
+
+            .profile img {
+                width: 80px; /* Smaller size for profile image on mobile */
+                height: 80px; /* Fixed size for profile image */
+            }
+
+            .profile {
+                width: 100%; /* Full width for each profile */
+                margin: 0; /* No margin for profiles */
+            }
+        }
