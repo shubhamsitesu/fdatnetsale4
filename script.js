@@ -158,12 +158,9 @@
                 messageArea.style.display = 'none';
             }, 3000);
         }
-        document.getElementById('makeOfferButton').addEventListener('click', function() {
-    window.location.href = 'mailto:your-email@example.com';
-});
  // Function to open email client
  function sendEmail(subject) {
-        const email = 'your-email@example.com';
+        const email = 'contact@fdating.net';
         const body = `Subject: ${subject}\n\n`;
         window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
