@@ -1,4 +1,7 @@
 User-agent: *
-Disallow: /private/ 
-Allow: /              
-Sitemap: https://mannki.com/sitemap.xml  
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /tmp/
+Sitemap: https://mannki.com/sitemap.xml
