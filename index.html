@@ -70,27 +70,6 @@
     }
     </script>
     
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "FDating.net",
-        "url": "https://fdating.net/",
-        "logo": "https://fdating.net/logo.png",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-800-123-4567",
-            "contactType": "Customer Service",
-            "availableLanguage": "English"
-        },
-        "sameAs": [
-            "https://www.facebook.com/fdating",
-            "https://twitter.com/fdating",
-            "https://www.instagram.com/fdating"
-        ]
-    }
-    </script>
-    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -194,6 +173,39 @@
         
         .lazy-load.loaded {
             opacity: 1;
+        }
+        
+        /* Domain Sale Popup Styles */
+        #domainPopup {
+            z-index: 9999;
+        }
+        
+        #domainPopup .popup-content {
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+        
+        #domainPopup.show .popup-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .price-badge {
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            animation: pulse-price 2s infinite;
+        }
+        
+        @keyframes pulse-price {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @media (max-width: 640px) {
+            #domainPopup .popup-content {
+                margin: 10px;
+                max-width: calc(100% - 20px);
+            }
         }
     </style>
 </head>
@@ -767,6 +779,68 @@
         </div>
     </div>
     
+    <!-- Domain Sale Popup -->
+    <div id="domainPopup" class="fixed inset-0 z-[9999] hidden">
+        <!-- Overlay -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"></div>
+        
+        <!-- Popup Content -->
+        <div class="fixed inset-0 flex items-center justify-center p-4">
+            <div class="popup-content bg-white rounded-2xl shadow-2xl max-w-md w-full">
+                <!-- Close Button -->
+                <button onclick="closeDomainPopup()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+                <!-- Popup Content -->
+                <div class="p-8 text-center">
+                    <!-- Domain Icon -->
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Title -->
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Premium Domain for Sale!</h2>
+                    
+                    <!-- Domain Name -->
+                    <div class="bg-gray-100 rounded-lg p-4 mb-6">
+                        <p class="text-2xl font-mono font-bold text-purple-600">FDating.net</p>
+                    </div>
+                    
+                    <!-- Price Badge -->
+                    <div class="price-badge text-white text-3xl font-bold py-3 px-6 rounded-full mb-6 inline-block">
+                        Only $99
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-gray-600 mb-6">
+                        This premium domain is perfect for your dating business. High traffic, memorable name, and excellent SEO potential!
+                    </p>
+                    
+                    <!-- GoDaddy Link -->
+                    <a href="https://www.godaddy.com/domainsearch/find?domainToCheck=fdating.net" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        Buy on GoDaddy
+                    </a>
+                    
+                    <!-- Additional Info -->
+                    <p class="text-sm text-gray-500 mt-4">
+                        Limited time offer • Premium domain • Instant transfer
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Structured Data for Breadcrumb -->
     <script type="application/ld+json">
     {
@@ -949,6 +1023,38 @@
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
+        
+        // Domain popup functions
+        function closeDomainPopup() {
+            const popup = document.getElementById('domainPopup');
+            popup.classList.remove('show');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 300);
+        }
+        
+        // Show domain popup after 3 seconds
+        setTimeout(() => {
+            const popup = document.getElementById('domainPopup');
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popup.classList.add('show');
+            }, 10);
+        }, 3000);
+        
+        // Close popup when clicking outside
+        document.getElementById('domainPopup').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('bg-black')) {
+                closeDomainPopup();
+            }
+        });
+        
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDomainPopup();
+            }
+        });
         
         // Lazy load images
         document.addEventListener("DOMContentLoaded", function() {
