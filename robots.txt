@@ -1,7 +1,15 @@
+# robots.txt for FDating.net
+
 User-agent: *
-Allow: /
-Disallow: /private/
 Disallow: /admin/
-Disallow: /login/
-Disallow: /tmp/
-Sitemap: https://mannki.com/sitemap.xml
+Disallow: /account/
+Disallow: /private/
+Disallow: /messages/
+Disallow: /chat/
+Disallow: /settings/
+Disallow: /billing/
+Disallow: /login
+Disallow: /signup
+Disallow: /api/
+
+Sitemap: https://fdating.net/sitemap.xml
